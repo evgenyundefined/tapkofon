@@ -2,25 +2,32 @@
  Copyright 2022 d4n13l3k00.
  SPDX-License-Identifier: 	AGPL-3.0-or-later
 -->
-<meta http-equiv="refresh" content="30">
-<script>
-    setInterval(function () { window.location.reload(); }, 30000);
-</script>
-
-<h4>Тапкофон - Чаты</h4>
-<ul>
-    {% for i in chats %}
-        <li>
-            <a href="/chat/{{ i.id }}">{{ i.title }} {%+ if i.unread %} [{{ i.unread }}] {% endif %}</a>
-        </li>
-    {% endfor %}
-</ul>
-{% if is_passwd %}
-    <a href="/lock">Заблокировать</a>
-    <br>
-{% endif %}
-<a href="/cache">Кеш</a>
-<br>
-<a href="/auth">Авторизация</a>
-<br>
-<a href="/about">О проекте</a>
+<html>
+    <head>
+        <meta http-equiv="refresh" content="30">
+        <script>
+            setInterval(function () {
+                window.location.reload();
+            }, 30000);
+        </script>
+    </head>
+    <body>
+        <h4>Тапкофон - Чаты</h4>
+        <ul>
+            {% for i in chats %}
+            <li>
+                <a href="/chat/{{ i.id }}">{{ i.title }} {%+ if i.unread %} [{{ i.unread }}] {% endif %}</a>
+            </li>
+            {% endfor %}
+        </ul>
+        {% if is_passwd %}
+        <a href="/lock">Заблокировать</a>
+        <br>
+        {% endif %}
+        <a href="/cache">Кеш</a>
+        <br>
+        <a href="/auth">Авторизация</a>
+        <br>
+        <a href="/about">О проекте</a>
+    </body>
+</html>
